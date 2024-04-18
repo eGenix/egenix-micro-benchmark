@@ -88,7 +88,7 @@ In some cases, pyperf may warn you about unstable results. Benchmarking typicall
 ## Roadmap
 
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
-- [ ] Release as a PyPI package
+- [ ] Turn into a package and release as a PyPI package
 
 ## Contact
 
