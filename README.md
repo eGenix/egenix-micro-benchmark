@@ -5,11 +5,11 @@
 
 ## Abstract
 
-This package provide a set of tools for easily writing micro benchmarks in Python.
+This package provides a set of tools for easily writing micro benchmarks in Python.
 
-It builds upon the [pyperf](https://pypi.org/project/pyperf/) package which is an evolution of the [pybench](https://github.com/python/cpython/tree/v3.6.15/Tools/pybench) tool, which was part of Python for a very long time (and was also authored by Marc-André Lemburg, just like this new package). pyperf comes with more modern ways of doing benchmarking and timing, with the aim of producing more stable results.
+It builds upon the [pyperf](https://pypi.org/project/pyperf/) package, which is an evolution of the older [pybench](https://github.com/python/cpython/tree/v3.6.15/Tools/pybench) tool. pybench was part of Python for a very long time (and was also authored by Marc-André Lemburg, just like this new package). pyperf, written by Victor Stinner, builds upon the pybench concepts, but comes with more modern ways of doing benchmarking and timing, with the aim of producing more stable results.
 
-Since micro benchmarks will typically test language features which run at the nanosecond scale, it is necessary to duplicate the test several times in order to have the test case run longer than the timing machinery around it. The package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
+Since micro benchmarks will typically test language features which run at the nanosecond scale, it is necessary to duplicate the test several times, in order to have the test case run longer than the timing machinery around it. The package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
 
 ## Example
 
