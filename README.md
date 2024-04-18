@@ -1,5 +1,7 @@
 
-# eGenix Micro Benchmarks
+# eGenix Micro Benchmark
+
+*Note*: This is a first alpha version of the software and as of yet, unreleased. Things are most likely going to change at a higher rate until we've reached a point where a release is made.
 
 ## Abstract
 
@@ -82,3 +84,12 @@ bench_match_int: Mean +- std dev: 105 ns +- 10 ns
 giving you the time it tool to run a single iteration of the bench part, together with an indication how reliable this reading is by providing the standard deviation of the timings.
 
 In some cases, pyperf may warn you about unstable results. Benchmarking typically works best on quiet machines which don't have anything much else to do.
+
+## Roadmap
+
+- [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
+- [ ] Release as a PyPI package
+
+## Contact
+
+For inquiries related to the package, please write to info@egenix.com
