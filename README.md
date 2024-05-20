@@ -89,48 +89,38 @@ In some cases, pyperf may warn you about unstable results. Benchmarking typicall
 
 ## Public API
 
-<dl>
-<dt>
 `micro_benchmark.run(namespace, prefix='bench_', filters=None)`
-</dt>
-<dd>
 
-Run all benchmark functions found in namespace.
-
-*namespace* can be an object with an '`.items()`' method (e.g. the
+> Run all benchmark functions found in namespace.
+>
+> *namespace* can be an object with an '`.items()`' method (e.g. the
 globals() dictionary) or a `.__dict__` attribute (e.g. a module,
 package, class, etc.).
-
-*prefix* is the prefix name of benchmark functions to look for
+>
+> *prefix* is the prefix name of benchmark functions to look for
 (defaults to '`bench_`').
-
-*filters* may be given as a list of regular expression to limit the
+>
+> *filters* may be given as a list of regular expression to limit the
 number of functions to run.  The expressions are OR-joined. If the
 parameter is not given, the command line argument `--mb-filter` is used.
 If this is missing as well, no filtering takes place.
 
-</dd>
+`micro_benchmark.configure(iterations=None, name=None)`
 
-<dt>`micro_benchmark.configure(iterations=None, name=None)`</dt>
-<dd>
-
-Provide additiona configuration for a benchmark function.
-
-*iterations* can be set to override the default for this function
+> Provide additiona configuration for a benchmark function.
+>
+> *iterations* can be set to override the default for this function
 (which is 20)
-
-*name* can be given to provide a more verbose name for the function.
+>
+> *name* can be given to provide a more verbose name for the function.
 The name is used by pyperf when generating output and for recording the
 results in the JSON results file. It defaults to the function's name.
-
-</dd>
-</dl>
 
 ## Roadmap
 
 - [x] Turn into a package
 - [ ] Release as a PyPI package
-- [ ] Add more documentation
+- [ ] Add more documentation and convert to MkDocs
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
 
