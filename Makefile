@@ -12,10 +12,10 @@ install-pyrun:
 install-venv:
 	python3.11 -m venv pyenv
 
-packages:
+install-packages:
 	pip install -r requirements.txt
 
-dev-packages:   packages
+install-dev-packages:   packages
 	pip install -r requirements-dev.txt
 
 update-packages:

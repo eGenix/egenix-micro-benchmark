@@ -9,7 +9,9 @@ This package provides a set of tools for easily writing micro benchmarks in Pyth
 
 It builds upon the [pyperf](https://pypi.org/project/pyperf/) package, which is an evolution of the older [pybench](https://github.com/python/cpython/tree/v3.6.15/Tools/pybench) tool. pybench was part of Python for a very long time (and was also authored by Marc-André Lemburg, just like this new package). pyperf, written by Victor Stinner, builds upon the pybench concepts, but comes with more modern ways of doing benchmarking and timing, with the aim of producing more stable results.
 
-Since micro benchmarks will typically test language features which run at the nanosecond scale, it is necessary to duplicate the test several times, in order to have the test case run longer than the timing machinery around it. The package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
+Since micro benchmarks will typically test language features which run at the nanosecond scale, it is necessary to duplicate the test several times, in order to have the test case run longer than the timing machinery around it.
+
+The package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
 
 ## Example
 
@@ -56,7 +58,7 @@ In order to prepare the virtual env needed for the package to run, edit the `Mak
 make install-venv
 source env.sh # for bash
 source env.csh # for C-shell
-make packages
+make install-packages
 ```
 
 (or use any other virtual env tool you like :-))
@@ -90,14 +92,14 @@ In some cases, pyperf may warn you about unstable results. Benchmarking typicall
 `micro_benchmark.run(namespace, prefix='bench_', filters=None)`
 : Run all benchmark functions found in namespace.
 
-: *namespace* can be a dictionary (e.g. the globals) or any other object
-with an '`.items()`' method or a `.__dict__` attribute (e.g. a module,
+: *namespace* can be an object with an '`.items()`' method (e.g. the
+globals() dictionary) or a `.__dict__` attribute (e.g. a module,
 package, class, etc.).
 
 : *prefix* is the prefix name of benchmark functions to look for
 (defaults to '`bench_`').
 
-: *filters* may be given as list of regular expression to limit the
+: *filters* may be given as a list of regular expression to limit the
 number of functions to run.  The expressions are OR-joined. If the
 parameter is not given, the command line argument `--mb-filter` is used.
 If this is missing as well, no filtering takes place.
