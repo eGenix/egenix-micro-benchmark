@@ -85,10 +85,41 @@ giving you the time it tool to run a single iteration of the bench part, togethe
 
 In some cases, pyperf may warn you about unstable results. Benchmarking typically works best on quiet machines which don't have anything much else to do.
 
+## Public API
+
+`micro_benchmark.run(namespace, prefix='bench_', filters=None)`
+: Run all benchmark functions found in namespace.
+
+: *namespace* can be a dictionary (e.g. the globals) or any other object
+with an '`.items()`' method or a `.__dict__` attribute (e.g. a module,
+package, class, etc.).
+
+: *prefix* is the prefix name of benchmark functions to look for
+(defaults to '`bench_`').
+
+: *filters* may be given as list of regular expression to limit the
+number of functions to run.  The expressions are OR-joined. If the
+parameter is not given, the command line argument `--mb-filter` is used.
+If this is missing as well, no filtering takes place.
+
+`micro_benchmark.configure(iterations=None, name=None)`
+: Provide additiona configuration for a benchmark function.
+
+: *iterations* can be set to override the default for this function
+(which is 20)
+
+: *name* can be given to provide a more verbose name for the function.
+The name is used by pyperf when generating output and for recording the
+results in the JSON results file. It defaults to the function's name.
+
+
 ## Roadmap
 
+- [x] Turn into a package
+- [ ] Release as a PyPI package
+- [ ] Add more documentation
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
-- [ ] Turn into a package and release as a PyPI package
+  - May be better to do this as a separate package
 
 ## Contact
 
