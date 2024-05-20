@@ -2,9 +2,13 @@
 """
     Micro benchmark for match vs. if-elif-else
 
-    Written by Marc-Andre Lemburg.
-    Copyright (c) 2024, eGenix.com Software GmbH; mailto:info@egenix.com
-    License: Apache-2.0
+    These were originally used for the talk "Advanced parsing of
+    structured data using Python's new match statement" and are included
+    as an extra example. See
+    https://github.com/eGenix/egenix-advanced-match-parsing for details.
+
+    Written by Marc-Andre Lemburg. Copyright (c) 2024, eGenix.com
+    Software GmbH; mailto:info@egenix.com License: Apache-2.0
 
 """
 import micro_benchmark
