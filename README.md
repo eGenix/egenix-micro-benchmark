@@ -1,7 +1,7 @@
 
 # eGenix Micro Benchmark
 
-*Note*: This is a first alpha version of the software and as of yet, unreleased. Things are most likely going to change at a higher rate until we've reached a point where a release is made.
+*Note*: This is a first alpha version of the software and, as of yet, unreleased. Things are most likely going to change at a higher rate until we've reached a point when a release is made.
 
 ## Abstract
 
@@ -59,7 +59,7 @@ source env.csh # for C-shell
 make packages
 ```
 
-(or use any other virtual tool you like :-))
+(or use any other virtual env tool you like :-))
 
 ## Running the benchmark
 
@@ -81,7 +81,7 @@ The output will look something like this:
 bench_match_int: Mean +- std dev: 105 ns +- 10 ns
 ```
 
-giving you the time it tool to run a single iteration of the bench part, together with an indication how reliable this reading is by providing the standard deviation of the timings.
+giving you the time it tool to run a single iteration of the bench part, together with an indication how reliable this reading is, by providing the standard deviation of the timings.
 
 In some cases, pyperf may warn you about unstable results. Benchmarking typically works best on quiet machines which don't have anything much else to do.
 
