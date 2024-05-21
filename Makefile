@@ -61,4 +61,5 @@ prod-upload:
 ### Run
 
 run:
-	python3 -m bench_match
+	python3 -m examples.bench_example
+	python3 -m examples.bench_match
