@@ -41,6 +41,9 @@ clean:
 distclean:	clean
 	rm -rf build dist *.egg-info __pycache__
 
+update-version:
+	$(EDITOR) micro_benchmark/__init__.py
+
 create-dist:	distclean
 	echo "Building distributions for version $(VERSION)"
 	python3 -m build

@@ -12,7 +12,7 @@ maintainers = [
     {name = 'eGenix.com Software, Skills and Services GmbH', email = "info@egenix.com"},
 ]
 requires-python = ">=3.9"
-keywords = ["benchmark", "tool"]
+keywords = ["benchmark", "micro benchmarks", "tool", "cli"]
 license = {text = "Apache-2.0 license"}
 classifiers = [
     "Environment :: Console",

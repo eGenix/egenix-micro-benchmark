@@ -1,7 +1,9 @@
 
 # eGenix Micro Benchmark
 
-*Note*: This is a first alpha version of the software. Things are most likely going to change at a higher rate until we've reached a point when a stable release can be made.
+**Easily write micro benchmarks in Python.**
+
+*Please note*: This is still an alpha version of the software. Things are most likely going to change at a higher rate until we've reached a point when a stable release can be made.
 
 ## Abstract
 
@@ -12,8 +14,6 @@ It builds upon the [pyperf](https://pypi.org/project/pyperf/) package, which is 
 Since micro benchmarks will typically test language features which run at a nanosecond scale, it is necessary to repeat the test code several times in order to have the test case run long enough to stand out compared to the timing machinery around it.
 
 This package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
-
-License: Apache 2.0 license
 
 ## Example
 
@@ -146,6 +146,13 @@ make prod-upload
 - [ ] Add more documentation and convert to MkDocs
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
+
+# License
+
+(c) Copyright 2024, eGenix.com Software, Skills and Services GmbH, Germany.
+This software is licensed under the Apache License, Version 2.0.
+Please see the LICENSE file for details.
+
 
 # Contact
 

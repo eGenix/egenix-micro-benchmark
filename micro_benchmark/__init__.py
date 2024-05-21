@@ -19,4 +19,4 @@ from micro_benchmark.runtime import run # noqa
 from micro_benchmark.decorators import configure # noqa
 
 # Version
-__version__ = '0.1.0.dev1'
+__version__ = '0.1.0'
