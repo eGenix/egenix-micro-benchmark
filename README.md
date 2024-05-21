@@ -1,7 +1,7 @@
 
 # eGenix Micro Benchmark
 
-*Note*: This is a first alpha version of the software and, as of yet, unreleased. Things are most likely going to change at a higher rate until we've reached a point when a release is made.
+*Note*: This is a first alpha version of the software. Things are most likely going to change at a higher rate until we've reached a point when a stable release can be made.
 
 ## Abstract
 
@@ -9,9 +9,9 @@ This package provides a set of tools for easily writing micro benchmarks in Pyth
 
 It builds upon the [pyperf](https://pypi.org/project/pyperf/) package, which is an evolution of the older [pybench](https://github.com/python/cpython/tree/v3.6.15/Tools/pybench) tool. pybench was part of Python for a very long time (and was also authored by Marc-André Lemburg, just like this new package). pyperf, written by Victor Stinner, builds upon the pybench concepts, but comes with more modern ways of doing benchmarking and timing, with the aim of producing more stable results.
 
-Since micro benchmarks will typically test language features which run at the nanosecond scale, it is necessary to duplicate the test several times, in order to have the test case run longer than the timing machinery around it.
+Since micro benchmarks will typically test language features which run at a nanosecond scale, it is necessary to repeat the test code several times, in order to have the test case run long enough to stand out compared to the timing machinery around it.
 
-The package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
+This package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
 
 ## Example
 
@@ -119,11 +119,11 @@ results in the JSON results file. It defaults to the function's name.
 ## Roadmap
 
 - [x] Turn into a package
-- [ ] Release as a PyPI package
+- [x] Release as a PyPI package
 - [ ] Add more documentation and convert to MkDocs
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
 
 ## Contact
 
-For inquiries related to the package, please write to info@egenix.com
+For inquiries related to the package, please write to info@egenix.com.
