@@ -13,7 +13,7 @@
 """
 import micro_benchmark
 
-###
+### Benchmarks
 
 # Match on second attempt
 
@@ -335,7 +335,7 @@ def bench_if_float_or_int():
     else:
         pass
 
-###
+### CLI
 
 if __name__ == '__main__':
     runner = micro_benchmark.run(globals())

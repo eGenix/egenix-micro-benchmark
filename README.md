@@ -9,9 +9,11 @@ This package provides a set of tools for easily writing micro benchmarks in Pyth
 
 It builds upon the [pyperf](https://pypi.org/project/pyperf/) package, which is an evolution of the older [pybench](https://github.com/python/cpython/tree/v3.6.15/Tools/pybench) tool. pybench was part of Python for a very long time (and was also authored by Marc-André Lemburg, just like this new package). pyperf, written by Victor Stinner, builds upon the pybench concepts, but comes with more modern ways of doing benchmarking and timing, with the aim of producing more stable results.
 
-Since micro benchmarks will typically test language features which run at a nanosecond scale, it is necessary to repeat the test code several times, in order to have the test case run long enough to stand out compared to the timing machinery around it.
+Since micro benchmarks will typically test language features which run at a nanosecond scale, it is necessary to repeat the test code several times in order to have the test case run long enough to stand out compared to the timing machinery around it.
 
 This package offers a very elegant way to do this and also provides generic discovery functionality to make writing such benchmarks a breeze.
+
+License: Apache 2.0 license
 
 ## Example
 
@@ -38,6 +40,7 @@ def bench_match_int():
     # Verify
     assert type == 'int'
 
+# CLI interface
 if __name__ == '__main__':
     micro_benchmark.run(globals())
 ```
@@ -50,20 +53,7 @@ The *bench* part is run inside a loop managed by pyperf lots of times to measure
 
 The *verify* part is run after the bench part to check whether the bench part did in fact run correctly and as expected. This part is not measured.
 
-## Preparing the venv
-
-In order to prepare the virtual env needed for the package to run, edit the `Makefile` to your liking and then run:
-
-```
-make install-venv
-source env.sh # for bash
-source env.csh # for C-shell
-make install-packages
-```
-
-(or use any other virtual env tool you like :-))
-
-## Running the benchmark
+## Running a benchmark
 
 Invoking the benchmark is easy. Simply run it with Python:
 
@@ -87,7 +77,7 @@ giving you the time it tool to run a single iteration of the bench part, togethe
 
 In some cases, pyperf may warn you about unstable results. Benchmarking typically works best on quiet machines which don't have anything much else to do.
 
-## Public API
+# Public API
 
 `micro_benchmark.run(namespace, prefix='bench_', filters=None)`
 
@@ -116,6 +106,39 @@ If this is missing as well, no filtering takes place.
 The name is used by pyperf when generating output and for recording the
 results in the JSON results file. It defaults to the function's name.
 
+# Development
+
+## Preparing the venv
+
+In order to prepare the virtual env needed for the package to run, edit the `Makefile` to your liking and then run:
+
+```
+make install-venv
+source env.sh # for bash
+source env.csh # for C-shell
+make install-packages
+```
+
+(or use any other virtual env tool you like :-))
+
+## Create a release
+
+- Make sure you update the version number in micro_benchmark/__init__.py
+
+- Create a distribution and upload to TestPyPI_
+```
+make create-dist
+make test-upload
+```
+- Check release on TestPyPI and try downloading the package from there
+  - Special attention should be paid to the contents of the .tar.gz file
+  - This should contain all necessary files to build the package
+- Publish to PyPI:
+```
+make prod-upload
+```
+- Send out release emails
+
 ## Roadmap
 
 - [x] Turn into a package
@@ -124,6 +147,6 @@ results in the JSON results file. It defaults to the function's name.
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
 
-## Contact
+# Contact
 
 For inquiries related to the package, please write to info@egenix.com.

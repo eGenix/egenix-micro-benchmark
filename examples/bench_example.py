@@ -8,7 +8,7 @@
 """
 import micro_benchmark
 
-###
+### Benchmarks
 
 def bench_match_int():
 
@@ -27,7 +27,7 @@ def bench_match_int():
     # Verify
     assert type == 'int'
 
-###
+### CLI
 
 if __name__ == '__main__':
     micro_benchmark.run(globals())
