@@ -1,7 +1,7 @@
 all:
 	echo "Please check the Makefile for available targets"
 
-VERSION := '0.0.1'
+VERSION := '$(shell python3 version.py)'
 TAG := 'egenix-micro-benchmark-$(VERSION)'
 
 ### Prepare the virtual env
@@ -15,11 +15,23 @@ install-venv:
 install-packages:
 	pip install -r requirements.txt
 
-install-dev-packages:   packages
-	pip install -r requirements-dev.txt
+install-dev-packages:
+	pip install -r requirements.txt -r requirements-dev.txt
+
+uninstall-packages:
+	pip uninstall -y -r requirements.txt
 
 update-packages:
-	pip install -U -r requirements-base.txt
+	pip-sync
+
+pip-compile:
+	pip-compile -o requirements.txt pyproject.toml
+	pip-compile --extra dev -o requirements-dev.txt pyproject.toml
+
+### Code
+
+check-code:
+	ruff check micro_benchmark
 
 ### Build
 
@@ -29,9 +41,9 @@ clean:
 distclean:	clean
 	rm -rf build dist *.egg-info __pycache__
 
-create-dist:	clean
+create-dist:	distclean
 	echo "Building distributions for version $(VERSION)"
-	python3 setup.py sdist bdist_wheel
+	python3 -m build
 
 tag-release:
 	git tag -a $(TAG) -m "Release $(VERSION)"

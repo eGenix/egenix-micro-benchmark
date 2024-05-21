@@ -15,5 +15,8 @@
 
 """
 # Public API
-from micro_benchmark.runtime import run
-from micro_benchmark.decorators import configure
+from micro_benchmark.runtime import run # noqa
+from micro_benchmark.decorators import configure # noqa
+
+# Version
+__version__ = '0.1.0.dev1'

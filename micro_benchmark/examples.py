@@ -27,7 +27,7 @@ def bench_match_int():
 
     # Bench
     match obj:
-        case float() as float_value:
+        case float() as float_value: # noqa
             pass
         case int() as int_value:
             pass
