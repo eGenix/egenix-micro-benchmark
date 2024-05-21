@@ -15,7 +15,7 @@ The package offers a very elegant way to do this and also provides generic disco
 
 ## Example
 
-Here's an example micro benchmark module (bench_example.py):
+Here's an example micro benchmark module (examples/bench_example.py):
 
 ```python
 #!/usr/bin/env python3
@@ -68,7 +68,7 @@ make install-packages
 Invoking the benchmark is easy. Simply run it with Python:
 
 ```
-python3 bench_example.py
+python3 examples/bench_example.py
 ```
 
 The benchmark will take all the command line arguments pyperf supports, in addition to these extra ones added by the egenix-micro-benchmarks package:
