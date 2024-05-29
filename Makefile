@@ -16,7 +16,7 @@ install-packages:
 	pip install -r requirements.txt
 
 install-dev-packages:
-	pip install -r requirements.txt -r requirements-dev.txt
+	pip install -r requirements-dev.txt
 
 uninstall-packages:
 	pip uninstall -y -r requirements.txt
