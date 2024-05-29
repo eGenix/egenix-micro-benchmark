@@ -57,15 +57,18 @@ def benchmark_code(fct,
     junk = []
     add_to = junk
     for line in lines:
-        if line.startswith('# Init'):
-            add_to = init
-            continue
-        elif line.startswith('# Bench'):
-            add_to = bench
-            continue
-        elif line.startswith('# Verify'):
-            add_to = verify
-            continue
+        if line.startswith('#'):
+            # Check comment section
+            lower_line = line[1:].strip().lower()
+            if lower_line.startswith('init'):
+                add_to = init
+                continue
+            elif lower_line.startswith('bench'):
+                add_to = bench
+                continue
+            elif lower_line.startswith('verify'):
+                add_to = verify
+                continue
         add_to.append(line)
     assert len(junk) == 0, f'found extra code: {junk}'
     init_code = ''.join((
