@@ -11,6 +11,18 @@
 ### Decorators
 
 def configure(iterations=None, name=None):
+
+    """ Decorator to provide additional configuration for a benchmark
+        function.
+
+        iterations can be set to override the default for this function.
+
+        name can be given to provide a more verbose name for the
+        function. The name is used by pyperf when generating output and
+        for recording the results in the JSON results file. It defaults
+        to the function's name.
+
+    """
     def wrapper(fct):
         if iterations is not None:
             fct.iterations = iterations
