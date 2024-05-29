@@ -97,7 +97,7 @@ If this is missing as well, no filtering takes place.
 
 `micro_benchmark.configure(iterations=None, name=None)`
 
-> Provide additiona configuration for a benchmark function.
+> Decorator to provide additional configuration for a benchmark function.
 >
 > *iterations* can be set to override the default for this function
 (which is 20)
@@ -137,13 +137,22 @@ make test-upload
 ```
 make prod-upload
 ```
+- Tag release
+- Create Github release based on tag
 - Send out release emails
 
 ## Roadmap
 
+### Short-term
+
 - [x] Turn into a package
 - [x] Release as a PyPI package
 - [ ] Add more documentation and convert to MkDocs
+- [ ] Add tests
+
+### Mid-term
+
+- [ ] Add ways to easily use these benchmarks in performance tests
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
 
