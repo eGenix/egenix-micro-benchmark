@@ -40,18 +40,32 @@ def bench_match_int():
     # Verify
     assert type == 'int'
 
-# CLI interface
+# CLI interface for benchmark functions in this module
 if __name__ == '__main__':
-    micro_benchmark.run(globals())
+    micro_benchmark.run(namespace=globals())
 ```
 
 ## Concept
 
-The *init* part is run to set up the variables for the main part, the *bench* part. This part is not measured.
+### Benchmark functions
 
-The *bench* part is run inside a loop managed by pyperf lots of times to measure the performance. Since the for-loop used for this incurs some timing overhead as well, the *bench* part is repeated a certain number of times (this is called *iterations* in the context of this package).
+Each micro benchmark function is separated in parts using standard Python comments with special names and the following meanings:
 
-The *verify* part is run after the bench part to check whether the bench part did in fact run correctly and as expected. This part is not measured.
+- The **init** part is run to set up the variables for the main part, the *bench* part. This part is not timed.
+
+- The **bench** part is run inside a loop managed by pyperf lots of times to measure the performance. Since the for-loop used for this incurs some timing overhead as well, the *bench* part is repeated a certain number of times (this is called *iterations* in the context of this package). Per default, the package uses 20 iterations, but this can be changed on a per function basis using a decorator.
+
+- The **verify** part is run after the bench part to check whether the bench part did in fact run correctly and as expected. This part is not timed.
+
+The comment section headers must each start with "`# Init`", "`# Bench`", "`# Verify`" respectively. Text after the initial section indicator is ignored. Code outside these sections is ignored.
+
+### Benchmark runner
+
+To run these functions via the command line, you call the `micro_benchmark.run()` function to have the package search for benchmark functions and run them.
+
+The first argument to this function has to be a namespace object (one which has an `.items()` method or a `.__dict__` attribute). Easiest is to provide the module globals() to have the function search the local module for benchmark functions.
+
+The second optional parameter provides the name prefix to search for. This defaults to "bench_" and is normally not needed.
 
 ## Running a benchmark
 
