@@ -23,6 +23,8 @@ Here's an example micro benchmark module (examples/bench_example.py):
 #!/usr/bin/env python3
 import micro_benchmark
 
+### Benchmark function
+
 def bench_match_int():
 
     # Init
@@ -40,12 +42,15 @@ def bench_match_int():
     # Verify
     assert type == 'int'
 
-# CLI interface for benchmark functions in this module
+### CLI interface for benchmark functions in this module
+
 if __name__ == '__main__':
     micro_benchmark.run(namespace=globals())
 ```
 
 ## Concept
+
+The micro benchmark package uses code rewriting to create benchmarking code from simple functions to remove all the overhead you typically need for benchmarking and focus entirely on the benchmark in question.
 
 ### Benchmark functions
 
@@ -57,7 +62,7 @@ Each micro benchmark function is separated in parts using standard Python commen
 
 - The **verify** part is run after the bench part to check whether the bench part did in fact run correctly and as expected. This part is not timed.
 
-The comment section headers must each start with "`# Init`", "`# Bench`", "`# Verify`" respectively. Text after the initial section indicator is ignored. Code outside these sections is ignored.
+The comment section headers must each start with "`# Init`", "`# Bench`", "`# Verify`" respectively. Text after the initial section indicator is ignored. Code outside these sections is ignored when the function is run as a micro benchmark; it still runs when the function is called normally.
 
 ### Benchmark runner
 
