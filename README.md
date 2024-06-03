@@ -175,6 +175,16 @@ make prod-upload
 - [ ] Add a whole set of micro benchmarks (e.g. the ones from pybench)
   - May be better to do this as a separate package
 
+# History
+
+- 0.2.0
+  - Made the benchmark section detection code more lenient
+  - Added more documentation and doc-strings
+  - Added new examples
+
+- 0.1.0 - Released on 2024-05-21
+  - Initial release
+
 # License
 
 (c) Copyright 2024, eGenix.com Software, Skills and Services GmbH, Germany.
