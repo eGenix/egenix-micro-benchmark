@@ -142,9 +142,12 @@ make install-packages
 
 ## Create a release
 
-- Make sure you update the version number in micro_benchmark/__init__.py
-
-- Create a distribution and upload to TestPyPI_
+- Install the dev requirements
+```
+make install-dev-packages
+```
+- Make sure you update the version number in `micro_benchmark/__init__.py`
+- Create a distribution and upload to TestPyPI
 ```
 make create-dist
 make test-upload
@@ -156,8 +159,11 @@ make test-upload
 ```
 make prod-upload
 ```
-- Tag release
-- Create Github release based on tag
+- Tag the release
+```
+make tag-release
+```
+- Create Github release based on the tag
 - Send out release emails
 
 ## Roadmap
